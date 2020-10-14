@@ -12,7 +12,7 @@
 }
 
 .navbar li{
-    list-styling-type: none;
+    list-style: none;
     float: left;
     color:black;
 }
@@ -43,20 +43,42 @@
             position:absolute;
             left: 0px;
             right: 0px;
-            top: 140px;
+            top: 150px;
             bottom: 0px;
-            background-color: red;
         }
         #left_pane{
-            background-color: green;
             height: 100%;
             width: 56%;
+            float: left;
         }
         #right_pane{
-            background-color: blue;
             height: 100%;
             width: 44%;
             float:left;
+        }
+        #story_text{
+            height: 150%
+        }
+        #button_choices{
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #story_img{
+            max-height: 97%;
+            max-width: 97%;
+            width: auto;
+            height: auto;
+        }
+        .button{
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            border-radius: 0px;
+            font-size: 16px;
+            margin: 10px;
         }
     </style>
     <body>
@@ -79,8 +101,20 @@
         </ul>
 
     <div id="container">
-    <div id="left_pane"></div>
-    <div id="right_pane"></div>
+        <div id="left_pane">
+                <img id="story_img" src="images/cat_gray.jpg" />
+            </div>
+            <div id="right_pane"></div>
+                <div id="story_text"></div>
+                <p>Welcome...</p>
+                <p>This is...</p>
+                <p>Do you...</p>
+            </div>
+            <div id="button_choices">
+                <a class="buttons" href="">Yes</a>
+                <a class="buttons" href="">No</a>
+            </div>
+        </div>
     </div>
 
     </body>
