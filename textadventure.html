@@ -1,97 +1,88 @@
+<!DOCTYPE HTML>
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-.navbar{
-
-    background-color:rgb(255, 255, 255);
-    background-image:linear-gradient(rgb(0, 0, 0));
-    
-    overflow:hidden;
-    padding: 0px;
-}
-
-.navbar li{
-    list-style: none;
-    float: left;
-    color:black;
-}
-
-.navbar a{
-    color:inherit;
-    text-decoration: none;
-    font-size: 24px;
-    padding: 16px;
-    display: inline-block;
-}
-
-.navbar li:hover{
-    background-color:cornflowerblue
-}
-
-.dropdown-content li{
-    float: none;
-}
-    </style>
         <title>
-            Text Adventure
+            Jonathan's Victorious
         </title>
-        <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-    </head>
-    <style>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
         #container{
-            position:absolute;
-            left: 0px;
-            right: 0px;
-            top: 150px;
+            position: absolute;
+            top: 75px;
             bottom: 0px;
+            left:0px;
+            right:0px;
         }
-        #left_pane{
+        #left-pane{
+            width:56%;
             height: 100%;
-            width: 56%;
-            float: left;
+            float:left;
+            display:flex;
+            align-items:center;
+            justify-content:center;
         }
-        #right_pane{
+        #right-pane{
+            width:44%;
             height: 100%;
-            width: 44%;
             float:left;
         }
-        #story_text{
-            height: 150%
+        #storytext{
+            position: absolute;
+            top: 100px;
+            bottom: 175px;
+            left:56%;
+            right:0px;
+            align-items:center;
+            text-align:center;
+            justify-content:center;
         }
-        #button_choices{
-            height: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        #choices{
+            position: absolute;
+            height: 175px;
+            bottom: 0px;
+            left:56%;
+            right:0px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
         }
-        #story_img{
-            max-height: 97%;
-            max-width: 97%;
-            width: auto;
-            height: auto;
-        }
-        .button{
-            text-decoration: none;
-            color: white;
-            background-color: black;
-            padding: 10px;
-            border-radius: 0px;
+        #b1, #b2, #b3, #b4{
+            display:inline-block;
+            background-color:background: rgb(255,0,0);
+            background: radial-gradient(circle, rgba(255,0,0,1) 1%, rgba(180,78,0,1) 39%, rgba(0,0,0,1) 98%);
+            color:white;
             font-size: 16px;
+            padding:10px;
+            border-radius: 8px;
+            text-decoration:none;
             margin: 10px;
         }
-    </style>
-    <body>
-        <h1>Text Adventure</h1>
+        #ptext1, #ptext2{
+            padding:5;
+            background-color:none;
+        }
+        #storyimg{
+            max-width:97%;
+            width:auto;
+            height:auto;
+            max-height:99%
+        }
+        body{
+            display: block;
+            }
+        </style>
+    </head>
+    <body class="overlord" >
         <ul class="navbar">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="contactme.html">Contact Me</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="resume.html">Resumé</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li class="dropdown">
-                <a href="0">Projects</a>
+                <div>Projects</div>
                 <ul class="dropdown-content">
-                    <li><a href="textadventure.html">Text Adventure</a></li>
+                    <li><a href="/textadventure.html" class="active">Text Adventure</a></li>
                     <li><a href="0">Project 2</a></li>
                     <li><a href="0">Project 3</a></li>
                     <li><a href="0">Project 4</a></li>
@@ -99,23 +90,415 @@
                 </ul>
             </li>
         </ul>
+        <div id= 'container'>
+            <div id = 'left-pane'>
+                <img id='storyimg' src="images/gerard.jpg">
+            </div>
 
-    <div id="container">
-        <div id="left_pane">
-                <img id="story_img" src="images/cat_gray.jpg" />
-            </div>
-            <div id="right_pane"></div>
-                <div id="story_text"></div>
-                <p>Welcome...</p>
-                <p>This is...</p>
-                <p>Do you...</p>
-            </div>
-            <div id="button_choices">
-                <a class="buttons" href="">Yes</a>
-                <a class="buttons" href="">No</a>
+            <div id= 'right-pane'>
+                <div id = 'storytext'>
+                <p id='ptext1'></p>
+                <p id='ptext2'></p>
+                <p id='ptext3'></p>
+                <p id='ptext4'></p>
+
+                </div>
+                <div id = 'choices'>
+                    <a id ='b1' onclick = "bclick(1)" href='#'>Yes</a>
+                    <a id ='b2' onclick = "bclick(2)"href='#'>No</a>
+                    <a id ='b3' onclick = "bclick(3)"href='#'>Choice 3</a>
+                    <a id ='b4' onclick = "bclick(4)"href='#'>Choice 4</a>
+                </div>
             </div>
         </div>
-    </div>
+        <script>
+            var pic = document.getElementById('storyimg');
+            var ptext1 = document.getElementById('ptext1');
+            var ptext2 = document.getElementById('ptext2');
+            var ptext3 = document.getElementById('ptext3');
+            var ptext4 = document.getElementById('ptext4');
+            var b1 = document.getElementById('b1');
+            var b2 = document.getElementById('b2');
+            var b3 = document.getElementById('b3');
+            var b4 = document.getElementById('b4');
+            var state = "intro";
+            intro();
 
+            function intro(){
+                ptext1.innerHTML="Gerard, a 36 year old man living in his mum’s wooden shack of a cottage in the empty serfdom fields of Lord Josiah the 12th’s barley field in northern England.";
+                ptext2.innerHTML="Does Gerard wish to get out of his small cot and embrace the repetition of his boring daily life?";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="Yes";
+                b2.innerHTML="No";
+                b1.style.display = "block";
+                b2.style.display = "block";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function journey(){
+                pic.src = "images/crack.jpg";
+                ptext1.innerHTML="Gerard leaves his bed, but upon his feet touching the floor, he steps upon one of the numerous cracks thorughout the stone floor and emmediadtly hears a scream from his mother's room.";
+                ptext2.innerHTML="Should Gerard investigate?";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b2.innerHTML="Yes";
+                b3.innerHTML="No";
+                b1.style.display = "none";
+                b2.style.display = "block";
+                b3.style.display = "block";
+                b4.style.display = "none";
+            }
+            function firdeath(){
+                pic.src = "images/skelly.jpg";
+                ptext1.innerHTML="Gerard never leaves his bed and eventualy passes away from dehydration, and a week later his house is burned down in a viking raid, leaving Gerard and his home as nothing but ash.";
+                ptext2.innerHTML="Procrastination is our mortal undoing.";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function noMum(){
+                pic.src = "images/grif.jpg";
+                ptext1.innerHTML="Gerard ignores the cries and walks out of his home and into the barley fields to work, in which he is promptly picked up by the claws of a mother griffin and taken to its nest to be devowered by its children.";
+                ptext2.innerHTML="His death is not nearly as swift as the great creature's flight.";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function sample(){
+                pic.src = "images/blank.jpg";
+                ptext1.innerHTML="";
+                ptext2.innerHTML="";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function nope(){
+                pic.src = "images/nome.jpg";
+                ptext1.innerHTML="Gerard refuses, instead cutting the prince himself down. But alas, hours later, Gerard's mortal body no longer is capable of keepin up with the rage of his spirit, and it collapses, turning Grard's brain off forever.";
+                ptext2.innerHTML="War is Peace - Orwell, 1948";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function halt(){
+                pic.src = "images/cast.png";
+                ptext1.innerHTML="Gerard accepts the Prince's help, and upon finding the entracne to the wizard's castle, the prince pockets the door off of the wall and flys away, allowing Gerard entrance into the foreboding castle.";
+                ptext2.innerHTML="";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="Continue";
+                b2.innerHTML="";
+                b1.style.display = "block";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function die(){
+                pic.src = "images/in.jpg";
+                ptext1.innerHTML="Gerard runs towards the pixies, but his fork has no effect, and instead of a vistory, Gerard is left itemless, and naked in the middle of an empty field.";
+                ptext2.innerHTML="To rot for his sins for eternity.";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function kill(){
+                pic.src = "images/kin.png";
+                ptext1.innerHTML="Gerard begin slaughtering the pixes with his magically enforced flyswatter that he had insterted into his stump of an arm.";
+                ptext2.innerHTML="And soon, the bloodshed becomes too much and the Pixie Prince appears and offers his help in Gerard's endevours should he halt the massacre.";
+                ptext3.innerHTML="Should Gerard stop?";
+                ptext4.innerHTML="";
+                b1.innerHTML="NO";
+                b2.innerHTML="Sure";
+                b1.style.display = "block";
+                b2.style.display = "block";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            
+            function barg(){
+                pic.src = "images/pix.jpg";
+                ptext1.innerHTML="Gerard is swifly convinced to give up his left hand in return for the Mythical Flyswatter of Enhanced Wrist Strength, and is thus sent on his way towards the castle of the wizard.";
+                ptext2.innerHTML="But, his direct path towards the castle is blocked by a gigantic swarm of Pesky Pocket Pinching Pixies!";
+                ptext3.innerHTML="Should Gerard run or fight?";
+                ptext4.innerHTML="";
+                b1.innerHTML="Fight";
+                b2.innerHTML="Run";
+                b1.style.display = "block";
+                b2.style.display = "block";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function ig(){
+                pic.src = "images/pix.jpg";
+                ptext1.innerHTML="Gerard ignores the money hungry salesperson and runs to the clearing that onpened up into the wizard's castle.";
+                ptext2.innerHTML="But, his path is blocked by a gigantic swarm of Pesky Pocket Pinching Pixies!";
+                ptext3.innerHTML="Should he run or attack?";
+                ptext4.innerHTML="";
+                b1.innerHTML="Attack";
+                b2.innerHTML="Run";
+                b1.style.display = "block";
+                b2.style.display = "block";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function continue1(){
+                pic.src = "images/sale.jpg";
+                ptext1.innerHTML="Gerard traverses the Mild Mid-Western Plain, only to come across a hoard of Lesser Rude Salesmen. One of whom approaches Gerard, offering a deal of a device to fend off the Pesky Pocket Pinching Pixes.";
+                ptext2.innerHTML="Should Gerard ignore him? or make a deal?";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="Ignore"; 
+                b2.innerHTML="Deal";
+                b1.style.display = "block";
+                b2.style.display = "block";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function helpMum(){
+                pic.src = "images/log.jpg";
+                ptext1.innerHTML="Gerard traverses through betwix the rotting wooden beams of his house only to arrive at his mother's room in horror.";
+                ptext2.innerHTML="Gerard's crack stepping had seemingly caused his mother to snap her back, a truly grim sight, and his grandmother to perish, although whether that was because of the crack stepping or her old age one shall never know.";
+                ptext3.innerHTML="'GO SEEK THE TIME WIZARD' Gerard's mum spat through her clenched teeth, 'ONLY HE WILL HAVE THE AIL TO THIS TORTURE!''";
+                ptext4.innerHTML="Should Gerard seek help in the Time Wizard?";
+                b1.innerHTML="Yes, swifly so!";
+                b4.innerHTML="No, I don't know her, and now nor does Gerard.";
+                b1.style.display = "block";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "block";
+            }
+            function findHelp(){
+                pic.src = "images/run.jpg";
+                ptext1.innerHTML="Gerard nods in aknowledgment at his mother and sprints out the door, determined to fix his apparent wrongdoing.";
+                ptext2.innerHTML="Whilst running about town inquiring as to this supposed 'Time Wizard' Gerard discovers that the wizard is the sole owner of the world's only 'Brace of Backening', a mysterious object said to heal the pains of any back, no mattter the severity.";
+                ptext3.innerHTML="Of this object Gerard was indeed wanting, and thus he thought on how he might aquire it.";
+                ptext4.innerHTML="Should Gerard seek to steal the magical artifact, or should he try to bargain and aquire the thing morally and legally?";
+                b2.innerHTML="Bloody well steal the thing, darn wizard can get a new one anways, probably.";
+                b3.innerHTML="Morality and trust are important, without legal bindings we are no more than animals, Gerard shall gather what little intellect he has and set forth with such!";
+                b1.style.display = "none";
+                b2.style.display = "block";
+                b3.style.display = "block";
+                b4.style.display = "none";
+            }
+            function forgotten(){
+                pic.src = "images/field.jpg";
+                ptext1.innerHTML="Gerard forgets his own mother, and wonders out of his home, soon forgetting it as well. By nightfall he no longer remembered his own name, and by the next morning he had forgotten how to breathe.";
+                ptext2.innerHTML="The sins of the forgotten are sins nonetheless.";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function steal(){
+                pic.src = "images/ged.jpg";
+                ptext1.innerHTML="Gerard has decided, of his own free will, to steal the brace, but he must first be prepared, he must aquire some 'Boots of Muffling', the likes of which the shoe goblin who lived beneath his house might have.";
+                ptext2.innerHTML="Should Gerard bargain with the goblin? Or should he murder it in cold blood, allowing the burte animality of his inner demons to comsume him and aquire the boots through blunt force and pent up rage?";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="Bargain, Gerard's not an animal!";
+                b2.innerHTML="DESTROY";
+                b1.style.display = "block";
+                b2.style.display = "block";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function moral(){
+                pic.src = "images/froz.jpg";
+                ptext1.innerHTML="Upon Gerard's approach to the wizard's castle, his loud footsteps are heard, and he is frozen to death by the wizard's ice ray.";
+                ptext2.innerHTML="Only the cold of winter can put out the fire of determination.";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function destroy(){
+                pic.src = "images/fork.jpg";
+                ptext1.innerHTML="Gerard storms into his home, tearing it apart in search of a weapon, and in his mothers dourery chest he finds it, the Holy Rusty Fork Of Legends";
+                ptext2.innerHTML="Now armed with the mighty weapon, Gerard rushes into the golbin's den, slashing and stabbing so wildly and violently that both his arms dislocate and become whips by which Gerard swings.";
+                ptext3.innerHTML="The Shoe Goblin, caught unaware, is niched by the rusted steal, and wiht a deadly concotion of bubonic plague and syfilis marring the rusted metal, the goblin falls, slain instantly.";
+                ptext4.innerHTML="Gerard then goes and picks up the boots, a happy smile upon his face, but a deep sense of forboding within his heart.";
+                b1.innerHTML="Continue the quest";
+                b2.innerHTML="";
+                b1.style.display = "block";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function bargain(){
+                pic.src = "images/boots.jpg";
+                ptext1.innerHTML="Gerard makes a deal with the rotten goblin, and aquires the Boots of Slight Muffling in return for his left hand. A hand that may be helpful in the future.";
+                ptext2.innerHTML="And thus Gerard seal up his wound and continues on, his steps nearly inaudible in the morning snow.";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="Continue the quest";
+                b2.innerHTML="";
+                b1.style.display = "block";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function flee(){
+                pic.src = "images/kin.jpg";
+                ptext1.innerHTML="Gerard flees to the castle, narrowly avoiding the gaze of the evil pixies.";
+                ptext2.innerHTML="Gerard sees that the door has been reinforced with the enchantment of 'Encanced Enterior Design', and is thus unbreakable. Out of options, Gerard sits down and waits for something to happen. It never does";
+                ptext3.innerHTML="";
+                ptext4.innerHTML="";
+                b1.innerHTML="";
+                b2.innerHTML="";
+                b1.style.display = "none";
+                b2.style.display = "none";
+                b3.style.display = "none";
+                b4.style.display = "none";
+            }
+            function bclick(button){
+                if(state == "intro"){
+                    if(button == 1){
+                        journey();
+                        state = "journey";
+                    }else{
+                        firdeath();
+                        state = "firdeath";
+                    }
+                }
+                else if(state == "firdeath"){
+                    if(button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                else if(state == "journey"){
+                    if(button == 2){
+                        helpMum();
+                        state = "helpMum";
+                    }
+                    else if(button == 3){
+                        noMum();
+                        state = "noMum";
+                    }
+                }
+                else if(state == "noMum"){
+                    if(button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                else if(state == "helpMum"){
+                    if(button == 1){
+                        findHelp();
+                        state = "findHelp";
+                    }
+                    else if(button == 4){
+                        forgotten();
+                        state = "forgotten";
+                    }
+                }
+                else if(state == "findHelp"){
+                    if(button == 2){
+                        steal();
+                        state = "steal";
+                    }
+                    else if(button == 3){
+                        moral();
+                        state = "moral";
+                    }
+                }
+                else if(state == "steal"){
+                    if(button == 1){
+                        bargain();
+                        state = "bargain";
+                    }
+                    else if(button == 2){
+                        destroy();
+                        state = "destroy";
+                    }
+                }
+                else if(state == "destroy"){
+                    if(button == 1){
+                        continue1();
+                        state = "continue1";
+                    }
+                }
+                else if(state == "bargain"){
+                    if(button == 1){
+                        continue1();
+                        state = "continue1";
+                    }
+                }
+                else if(state == "continue1"){
+                    if(button == 2){
+                        barg();
+                        state = "barg";
+                    }
+                    else if(button == 1){
+                        ig();
+                        state = "ig";
+                    }
+                }
+                else if(state == "barg"){
+                    if(button == 1){
+                        kill();
+                        state = "kill";
+                    }
+                    else if(buton == 2){
+                        flee();
+                        state = "flee";
+                    }
+                }
+                else if(state == "ig"){
+                    if(button == 1){
+                        die();
+                        state = "die";
+                    }
+                    if(buton == 2){
+                        flee();
+                        state = "flee";
+                    }
+                }
+                else if(state == "kill"){
+                    if(button == 1){
+                        nope();
+                        state = "nope";
+                    }
+                    if(buton == 2){
+                        halt();
+                        state = "halt";
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
