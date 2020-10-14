@@ -40,13 +40,23 @@
     </head>
     <style>
         #container{
-            position:left;
+            position:absolute;
             left: 0px;
             right: 0px;
-            top: 90px:
+            top: 140px;
             bottom: 0px;
             background-color: red;
-
+        }
+        #left_pane{
+            background-color: green;
+            height: 100%;
+            width: 56%;
+        }
+        #right_pane{
+            background-color: blue;
+            height: 100%;
+            width: 44%;
+            float:left;
         }
     </style>
     <body>
@@ -69,7 +79,9 @@
         </ul>
 
     <div id="container">
+    <div id="left_pane"></div>
+    <div id="right_pane"></div>
     </div>
-    
+
     </body>
 </html>
