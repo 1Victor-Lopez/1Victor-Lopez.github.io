@@ -18,7 +18,7 @@
                 background-color:#4a98f1;
             }
             .navbar li:hover{
-                background-color:red;
+                background-color:darkblue;
             }
             .dropdown-content{
                 list-style:none;
@@ -41,7 +41,7 @@
                 font-family:georgia;
             }
             .active{
-                background-color:red;
+                background-color:darkblue;
             }
             hr {
                 border: 1px solid black;
